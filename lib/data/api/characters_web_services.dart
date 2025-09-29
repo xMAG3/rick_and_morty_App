@@ -4,12 +4,12 @@ import 'package:dio/dio.dart';
 class CharactersWebServices {
   late Dio dio;
 
-  CharacterWebServices() {
+  CharactersWebServices() {
     BaseOptions options = BaseOptions(
       baseUrl: baseUrl,
       receiveDataWhenStatusError: true,
-      connectTimeout: const Duration(seconds: 20), //20 seconds
-      receiveTimeout: const Duration(seconds: 20),
+      connectTimeout: Duration(milliseconds: 20 * 1000), // 20 seconds,
+      receiveTimeout: Duration(milliseconds: 20 * 1000),
     );
     dio = Dio(options);
   }
@@ -17,7 +17,7 @@ class CharactersWebServices {
   Future<List<dynamic>> getAllCharacters() async {
     try {
       Response response = await dio.get('character');
-      return response.data;
+      return response.data['results'];
     } catch (e) {
       print(e.toString());
       return [];

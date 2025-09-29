@@ -13,7 +13,7 @@ class CharactersScreen extends StatefulWidget {
 }
 
 class _CharactersScreenState extends State<CharactersScreen> {
-  List<Character>? allCharacters;
+  late List<Character> allCharacters;
   @override
   void initState() {
     super.initState();
@@ -37,14 +37,14 @@ class _CharactersScreenState extends State<CharactersScreen> {
 
   Widget showLoadingIndicator() {
     return const Center(
-      child: CircularProgressIndicator(color: MyColors.myYellow),
+      child: CircularProgressIndicator(color: MyColors.grenne),
     );
   }
 
   Widget buildLoadedListWidget() {
     return SingleChildScrollView(
       child: Container(
-        color: MyColors.grey,
+        color: MyColors.dgrey,
         child: Column(children: [buildCharachterList()]),
       ),
     );
@@ -62,7 +62,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
       physics: const ClampingScrollPhysics(),
       itemCount: allCharacters?.length,
       itemBuilder: (context, index) {
-        return CharacterItem( character: allCharacters![index]);
+        return CharacterItem(character: allCharacters![index]);
       },
     );
   }
@@ -72,7 +72,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Characters'),
-        backgroundColor: MyColors.myYellow,
+        backgroundColor: MyColors.grenne,
         titleTextStyle: const TextStyle(
           color: Colors.white,
           fontSize: 24,

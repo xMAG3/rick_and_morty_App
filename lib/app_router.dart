@@ -2,6 +2,7 @@ import 'package:bloc_app/business_logic/cubit/characters_cubit.dart';
 import 'package:bloc_app/constant/strings.dart';
 import 'package:bloc_app/data/api/characters_web_services.dart';
 import 'package:bloc_app/data/repository/characters_repository.dart';
+import 'package:bloc_app/presentation/screens/characters_details.dart';
 import 'package:bloc_app/presentation/screens/characters_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,7 +27,7 @@ class AppRouter {
           ),
         );
       case characterDetailsScreen:
-        return MaterialPageRoute(builder: (_) => CharactersScreen());
+        return MaterialPageRoute(builder: (_) => CharactersDetailsScreen());
     }
   }
 }

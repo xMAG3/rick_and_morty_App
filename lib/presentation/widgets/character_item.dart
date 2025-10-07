@@ -16,36 +16,38 @@ class CharacterItem extends StatelessWidget {
         color: const Color.fromARGB(255, 4, 168, 197),
         borderRadius: BorderRadius.circular(8),
       ),
-      child: GridTile(
-        child: Container(
-          color: MyColors.dgrey,
-          child: character.image.isNotEmpty
-              ? FadeInImage.assetNetwork(
-                  width: double.infinity,
-                  height: double.infinity,
-
-                  placeholder: 'assets/images/Loading Dots In Yellow.gif',
-                  image: character.image,
-                  fit: BoxFit.cover,
-                )
-              : Image.asset('assets/images/placeholder.jpg', fit: BoxFit.cover),
-        ),
-        footer: Container(
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-          color: Colors.black54,
-          alignment: Alignment.bottomCenter,
-          child: Text(
-            '${character.name}',
-            style: TextStyle(
-              height: 1.3,
-              fontSize: 18,
-              color: MyColors.white,
-              fontWeight: FontWeight.bold,
+      child: InkWell(
+        child: GridTile(
+          footer: Container(
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            color: Colors.black54,
+            alignment: Alignment.bottomCenter,
+            child: Text(
+              character.name,
+              style: TextStyle(
+                height: 1.3,
+                fontSize: 18,
+                color: MyColors.white,
+                fontWeight: FontWeight.bold,
+              ),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              textAlign: TextAlign.center,
             ),
-            overflow: TextOverflow.ellipsis,
-            maxLines: 2,
-            textAlign: TextAlign.center,
+          ),
+          child: Container(
+            color: MyColors.dgrey,
+            child: character.image.isNotEmpty
+                ? FadeInImage.assetNetwork(
+                    width: double.infinity,
+                    height: double.infinity,
+        
+                    placeholder: 'assets/images/Loading Dots In Yellow.gif',
+                    image: character.image,
+                    fit: BoxFit.cover,
+                  )
+                : Image.asset('assets/images/placeholder.jpg', fit: BoxFit.cover),
           ),
         ),
       ),

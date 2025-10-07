@@ -8,8 +8,6 @@ class CharactersWebServices {
     BaseOptions options = BaseOptions(
       baseUrl: baseUrl,
       receiveDataWhenStatusError: true,
-      connectTimeout: Duration(milliseconds: 20 * 1000), // 20 seconds,
-      receiveTimeout: Duration(milliseconds: 20 * 1000),
     );
     dio = Dio(options);
   }
